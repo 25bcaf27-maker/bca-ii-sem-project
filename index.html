@@ -1,90 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jyotsna Jijo Joseph - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Jyotsna Portfolio</title>
+
+  <!-- Connect CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <main>
-        <section id="home" class="card">
-            <h1>Jyotsna Jijo Joseph</h1>
-            <p>BCA Student at Kristu Jayanti University</p>
-        </section>
+<header>
+  <h1>Jyotsna Jijo Joseph</h1>
+  <p>BCA Student | Kristu Jayanti University</p>
+</header>
 
-        <section id="about" class="card">
-            <h2>About Me</h2>
-            <p>Passionate Computer Science student with strong foundation in programming and web technologies. Eager to apply skills in innovative projects and contribute to tech solutions.</p>
-        </section>
+<section>
+  <h2>About Me</h2>
+  <p>I am a BCA student studying at Kristu Jayanti University with interest in programming and web development.</p>
+</section>
 
-        <section id="education" class="card">
-            <h2>Education</h2>
-            <ul>
-                <li>Higher Secondary: Chavara Public School (2023-2025)</li>
-                <li>BCA: Kristu Jayanti University (2025-present)</li>
-            </ul>
-        </section>
+<section>
+  <h2>Education</h2>
+  <p><b>Higher Secondary:</b> Chavara Public School</p>
+  <p><b>University:</b> Kristu Jayanti University</p>
+</section>
 
-        <section id="skills" class="card">
-            <h2>Skills</h2>
-            <ul>
-                <li>C Programming</li>
-                <li>Python</li>
-                <li>RDBMS</li>
-                <li>HTML/CSS</li>
-                <li>JavaScript</li>
-            </ul>
-        </section>
+<section>
+  <h2>Skills</h2>
+  <ul>
+    <li>C Programming</li>
+    <li>Python</li>
+    <li>RDBMS</li>
+    <li>HTML & CSS</li>
+    <li>JavaScript</li>
+  </ul>
+</section>
 
-        <section id="contact" class="card">
-            <h2>Contact Me</h2>
-            <form id="contactForm" action="/contact" method="POST">
-                <label>Name:<br>
-                    <input type="text" name="name" required>
-                </label>
-                <label>Email:<br>
-                    <input type="email" name="email" required>
-                </label>
-                <label>Message:<br>
-                    <textarea name="message" rows="5" required></textarea>
-                </label>
-                <button type="submit">Submit Message</button>
-            </form>
-            <div id="formResponse">
-                <script>
-                    // Success/error from server redirect
-                    if (window.location.search.includes('success=1')) {
-                        document.getElementById('formResponse').innerHTML = '<p class="success">✅ Message sent to Supabase successfully!</p>';
-                    } else if (window.location.search.includes('error=1')) {
-                        document.getElementById('formResponse').innerHTML = '<p class="error">❌ Failed to send. Please try again.</p>';
-                    }
-                </script>
-            </div>
-        </section>
-    </main>
+<section>
+  <h2>Contact Me</h2>
 
-    <script>
-        // Navbar smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-    </script>
+  <form>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+</section>
+
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<!-- Connect JS -->
+<script src="script.js"></script>
+
 </body>
 </html>
