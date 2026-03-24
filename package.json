@@ -1,0 +1,14 @@
+{
+  "name": "jyotsna-portfolio",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "@supabase/supabase-js": "latest",
+    "mysql2": "^3.6.5"
+  }
+}
