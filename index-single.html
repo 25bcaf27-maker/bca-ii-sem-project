@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jyotsna Jijo Joseph | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Home Section - Blue -->
+    <section id="home" class="section blue">
+      <div class="card">
+        <h1>Jyotsna Jijo Joseph</h1>
+        <p>BCA Student | Kristu Jayanti University</p>
+        <p>Welcome to my portfolio. Explore my skills and journey!</p>
+      </div>
+    </section>
+
+    <!-- About Section - Green -->
+    <section id="about" class="section green">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>I am a BCA student studying at Kristu Jayanti University with interest in programming and web development.</p>
+        <p>Passionate about creating beautiful and functional websites.</p>
+      </div>
+    </section>
+
+    <!-- Education Section - Purple -->
+    <section id="education" class="section purple">
+      <div class="card">
+        <h2>Education</h2>
+        <p><b>Higher Secondary:</b> Chavara Public School</p>
+        <p><b>University:</b> Kristu Jayanti University - BCA</p>
+      </div>
+    </section>
+
+    <!-- Skills Section - Orange -->
+    <section id="skills" class="section orange">
+      <div class="card">
+        <h2>Skills</h2>
+        <ul>
+          <li>C Programming</li>
+          <li>Python</li>
+          <li>RDBMS</li>
+          <li>HTML & CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Section - Pink -->
+    <section id="contact" class="section pink">
+      <div class="card">
+        <h2>Contact Me</h2>
+        <form>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Backend API contact form
+    document.querySelector("form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.querySelector("input[name='name']").value,
+        email: document.querySelector("input[name='email']").value,
+        message: document.querySelector("textarea[name='message']").value
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          let msgDiv = document.querySelector('.response');
+          if (!msgDiv) {
+            msgDiv = document.createElement('div');
+            msgDiv.className = 'response success';
+            document.querySelector('form').after(msgDiv);
+          }
+          msgDiv.textContent = result.message;
+          setTimeout(() => msgDiv.remove(), 5000);
+          document.querySelector("form").reset();
+        } else {
+          throw new Error(result.error || 'Failed');
+        }
+      } catch (err) {
+        console.error(err);
+        let msgDiv = document.querySelector('.response');
+        if (!msgDiv) {
+          msgDiv = document.createElement('div');
+          msgDiv.className = 'response error';
+          document.querySelector('form').after(msgDiv);
+        }
+        msgDiv.textContent = `❌ ${err.message}`;
+        setTimeout(() => msgDiv.remove(), 7000);
+      }
+    });
+
+    // Smooth scroll for navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
