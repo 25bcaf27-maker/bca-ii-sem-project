@@ -1,58 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Jyotsna Portfolio</title>
-
-  <!-- Connect CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyotsna Jijo Joseph | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header>
+        <h1>Jyotsna Jijo Joseph</h1>
+        <p>BCA Student at Kristu Jayanti University</p>
+    </header>
 
-<header>
-  <h1>Jyotsna Jijo Joseph</h1>
-  <p>BCA Student | Kristu Jayanti University</p>
-</header>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a dedicated BCA student at Kristu Jayanti University with a passion for technology and software development. I enjoy solving problems and building functional web applications.</p>
+        </section>
 
-<section>
-  <h2>About Me</h2>
-  <p>I am a BCA student studying at Kristu Jayanti University with interest in programming and web development.</p>
-</section>
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>Higher Secondary Education:</strong> Chavara Public School</p>
+            <p><strong>University:</strong> Kristu Jayanti University (BCA, Ongoing)</p>
+        </section>
 
-<section>
-  <h2>Education</h2>
-  <p><b>Higher Secondary:</b> Chavara Public School</p>
-  <p><b>University:</b> Kristu Jayanti University</p>
-</section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span>C Programming</span> <span>Python</span> <span>RDBMS</span> 
+                <span>HTML/CSS</span> <span>JavaScript</span>
+            </div>
+        </section>
 
-<section>
-  <h2>Skills</h2>
-  <ul>
-    <li>C Programming</li>
-    <li>Python</li>
-    <li>RDBMS</li>
-    <li>HTML & CSS</li>
-    <li>JavaScript</li>
-  </ul>
-</section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form action="/contact" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
 
-<section>
-  <h2>Contact Me</h2>
-
-  <form>
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-
-</section>
-
-<!-- Supabase CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<!-- Connect JS -->
-<script src="script.js"></script>
-
+    <footer>
+        <p>&copy; 2026 Jyotsna Jijo Joseph. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
